@@ -32,3 +32,6 @@ def article_create_view(request):
         new_article = Article.objects.create(content=content,  status=status, deadline=deadline)
         context = {'article': new_article}
         return render(request, 'article_view.html', context)
+
+def test(request):
+    pass
