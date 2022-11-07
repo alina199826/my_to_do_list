@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="container">
+
+    <a href="/">Home</a>
+
+
+    <h1>Название: {{ task.title }}</h1>
+    <h2>Со статусом: {{ task.get_status_display }}</h2>
+    <h2>Выполнить до: </h2><p>{{ task.deadline }}</p>
+    <hr>
+</div>
+
+
+</body>
+</html>

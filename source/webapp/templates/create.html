@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Task</title>
+</head>
+
+<body>
+    <a href="/">Home</a>
+        <h2 class="text-danger">Добавь новую задачу</h2>
+
+        <form action="" method="POST">
+           {% csrf_token %}
+           <label>STATUS:</label><br/>
+            <select name="status" >
+                {% for value, status in statuses %}
+                    <option value="{{ value }}">{{ status }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label>Название: </label>
+             <input type="text" name="title"/>
+            <br/>
+            <label>Дата выполнения: </label>
+            <input type="text" name="deadline"/>
+            <br/>
+            <input type="submit" value="Create">
+
+
+        </form>
+
+
+</body>
+
+</html>
+{##}
+{#<div class="container">#}
+{#        <h1 class="text-success">TO DO LIST</h1>#}
+{##}
+{#    <h2 class="text-danger">Добавь новую задачу</h2>#}
+{##}
+{#    <form action="/articles/add/" method="post">#}
+{#        {% csrf_token %}#}
+{##}
+{#        <label>Название</label><br/>#}
+{#        <input type="text" name="title"/><br/>#}
+{##}
+{#        <label>Описание:</label><br/>#}
+{#        <textarea name="content"></textarea><br/>#}
+{##}
+{#        <label>STATUS:</label><br/>#}
+{#        <select name="status">#}
+{#            {% for status in statuses %}#}
+{#                <option value="{{ status.0 }}"> {{ status.1 }}</option>#}
+{#            {% endfor %}#}
+{##}
+{#        </select>#}
+{##}
+{#       <label>Ваш дедлайн</label><br/>#}
+{#        <input type="date" name="deadline"/><br/>#}
+{##}
+{#        <br>#}
+{#        <input type="submit" value="Send"/>#}
+{#    </form>#}
+{#    <p><a href="/">На главную</a></p>#}
+{#</div>#}

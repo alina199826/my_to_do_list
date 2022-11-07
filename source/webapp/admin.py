@@ -1,7 +1,14 @@
 from django.contrib import admin
 
-from webapp.models import Article
+from webapp.models import Task
 
-# Register your models here.
+# Register your models here
 
-admin.site.register(Article)
+
+class TackAdmin(admin.ModelAdmin):
+     list_display = ['id', 'title', 'status', 'deadline']
+     list_filter = ['status']
+     search_fields = ['title']
+     exclude = []
+
+admin.site.register(Task, TackAdmin)
