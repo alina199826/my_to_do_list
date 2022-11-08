@@ -1,0 +1,30 @@
+[
+{
+    "model": "webapp.task",
+    "pk": 42,
+    "fields": {
+        "title": "написать письмо деду Морозу",
+        "deadline": "2022-12-31",
+        "status": "new",
+        "description": "купить конверт, написать письмо на листке. Сходить на почту и отправить в лапландию"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$gwq85BhIOYjkKs0a9C2Jkp$aCsb8dTr6VLVCSfBQmeQ8sH8XYV2VZ0vCwLrVmjF228=",
+        "last_login": "2022-11-08T11:48:20.409Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@a.ru",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-11-07T10:50:38.585Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

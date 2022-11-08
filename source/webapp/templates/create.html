@@ -1,9 +1,4 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Create Task</title>#}
-{#</head>#}
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -13,7 +8,7 @@
 
         <form action="" method="POST">
            {% csrf_token %}
-           <label>STATUS:</label><br/>
+           <label>STATUS:</label>
             <select name="status" >
                 {% for value, status in statuses %}
                     <option value="{{ value }}">{{ status }}</option>
@@ -22,10 +17,13 @@
             <br>
             <label>Название: </label>
              <input type="text" name="title"/>
-            <br/>
+            <br>
+             <label>Описание: </label>
+             <input type="text" name="description"/>
+            <br>
             <label>Дата выполнения: </label>
             <input type="text" name="deadline"/>
-            <br/>
+            <br>
             <input type="submit" value="Create">
 
 

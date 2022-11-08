@@ -1,10 +1,5 @@
-from django.shortcuts import render, redirect
-
-# Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import Task, STATUS
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 
 
 def index_views(request):
@@ -27,9 +22,10 @@ def create_task(request):
         return render(request, "create.html", {'statuses': STATUS})
     elif request.method == "POST":
         title = request.POST.get('title')
+        description = request.POST.get('description')
         status = request.POST.get('status')
         deadline = request.POST.get('deadline')
-        new_task = Task.objects.create(title=title,  status=status, deadline=deadline)
+        new_task = Task.objects.create(title=title, description=description,  status=status, deadline=deadline)
         # return render(request, 'task_view.html', {'tasks': new_task})
         # url = reverse('view', kwargs={'pk': new_task.pk})
         # return HttpResponseRedirect(url)
