@@ -13,7 +13,7 @@
                 <input type="submit" value="delete">
             </form>
             <hr>
-            <a href="/task/{{ task.id }}">Подробнее</a>
+            <a href="{% url 'view' task.id %}">Подробнее</a>
         {% endfor %}
 
 
