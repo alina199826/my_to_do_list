@@ -26,7 +26,4 @@ def create_task(request):
         status = request.POST.get('status')
         deadline = request.POST.get('deadline')
         new_task = Task.objects.create(title=title, description=description,  status=status, deadline=deadline)
-        # return render(request, 'task_view.html', {'tasks': new_task})
-        # url = reverse('view', kwargs={'pk': new_task.pk})
-        # return HttpResponseRedirect(url)
         return redirect('view', pk=new_task.pk)
