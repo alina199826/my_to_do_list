@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import index_views, create_task
+from webapp.views import index_views, create_task, task_view
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_views),
     path('task/add/', create_task),
+    path('task/<int:pk>/', task_view)
 ]

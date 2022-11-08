@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Task</title>
-</head>
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Create Task</title>#}
+{#</head>#}
+{% extends 'base.html' %}
 
-<body>
+{% block content %}
+
     <a href="/">Home</a>
         <h2 class="text-danger">Добавь новую задачу</h2>
 
@@ -30,6 +32,6 @@
         </form>
 
 
-</body>
 
-</html>
+{% endblock %}
+
