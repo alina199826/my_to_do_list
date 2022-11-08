@@ -8,12 +8,14 @@
             <h3>Название: {{ task.title }}</h3>
             <h4>статус:</h4><h2>"{{ task.status }}"</h2>
             <p> Выполнить до {{ task.deadline|date:"d F Y"|default:"-" }}</p>
-            <form action="/{{ task.id }}" method="POST">
+            <form action="/?id={{ task.id }}" method="POST">
             {% csrf_token %}
                 <input type="submit" value="delete">
             </form>
-            <hr>
+            <br>
             <a href="{% url 'view' task.id %}">Подробнее</a>
+            <hr>
+
         {% endfor %}
 
 
