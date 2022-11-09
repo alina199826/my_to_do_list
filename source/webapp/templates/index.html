@@ -1,5 +1,12 @@
 
 {% extends 'base.html' %}
+
+{% block nav %}
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'create' %}">Add Task</a>
+    </li>
+{% endblock %}
+
 {% block content %}
 
         <h1>To Do list</h1>
@@ -10,9 +17,8 @@
             <p> Выполнить до {{ task.deadline|date:"d F Y"|default:"-" }}</p>
             <form action="/?id={{ task.id }}" method="POST">
             {% csrf_token %}
-                <input type="submit" value="delete">
             </form>
-            <br>
+
             <a href="{% url 'view' task.id %}">Подробнее</a>
             <hr>
 

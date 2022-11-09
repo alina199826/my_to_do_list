@@ -3,10 +3,6 @@ from webapp.models import Task, STATUS
 
 
 def index_views(request):
-    if request.method == 'POST':
-        task_id = request.GET.get('id')
-        task = Task.objects.get(id=task_id)
-        task.delete()
     tasks = Task.objects.all()
     return render(request, "index.html", {'tasks': tasks})
 
@@ -27,3 +23,23 @@ def create_task(request):
         deadline = request.POST.get('deadline')
         new_task = Task.objects.create(title=title, description=description,  status=status, deadline=deadline)
         return redirect('view', pk=new_task.pk)
+
+def task_update(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'task_update.html', {'task': task})
+    elif request.method == "POST":
+        task.title = request.POST.get('title')
+        task.description = request.POST.get('description')
+        task.status = request.POST.get('status')
+        task.deadline = request.POST.get('deadline')
+        task.save()
+        return redirect('view', pk=task.pk)
+
+def task_delete(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == "GET":
+        return render(request, 'task_delete.html', {'task': task})
+    elif request.method == "POST":
+        task.delete()
+        return redirect('index')
