@@ -6,24 +6,8 @@
         <h2 class="text-danger">Добавь новую задачу</h2>
 
         <form action="" method="POST">
-           {% csrf_token %}
-           <label>STATUS:</label>
-            <select name="status" >
-                {% for value, status in statuses %}
-                    <option value="{{ value }}">{{ status }}</option>
-                {% endfor %}
-            </select>
-            <br>
-            <label>Название: </label>
-             <input type="text" name="title"/>
-            <br>
-             <label>Описание: </label>
-             <input type="text" name="description"/>
-            <br>
-            <label>Дата выполнения: </label>
-            <input type="text" name="deadline"/>
-            <br>
-            <input type="submit" value="Create">
+           {% include "partial/form.html" with button_text="Create" %}
+
 
 
         </form>
