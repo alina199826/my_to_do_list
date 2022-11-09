@@ -1,19 +1,17 @@
-  {% csrf_token %}
-           <label>STATUS:</label>
-            <select name="status">
-                {% for value, status in statuses %}
-                    <option value="{{ value }}">{{ status }}</option>
-                {% endfor %}
-            </select>
-            <br>
-            <label>Название: </label>
-             <input type="text" name="title" value="{{ task.title }}"/>
-            <br>
-             <label>Описание: </label>
-             <input type="text" name="description" value="{{ task.description }}"/>
-            <br>
-            <label>Дата выполнения: </label>
-            <input type="text" name="deadline" value="{{ task.deadline }}"/>
-            <br>
+{% csrf_token %}
 
-<input type="submit" value="{{ button_text }}">
+{% for error in form.non_field_errors %}
+    <p class="text-danger">{{ error }}</p>
+{% endfor %}
+
+{% for field in form %}
+    <p><label for="{{ field.id_for_label }}">{{ field.label }}</label></p>
+    {% for error in field.errors %}
+        <p class="text-danger">{{ error }}</p>
+    {% endfor %}
+    <p>{{ field }}</p>
+{% endfor %}
+
+
+
+<input type="submit" value="{{ button_text }}"/>>
