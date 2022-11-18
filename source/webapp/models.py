@@ -3,16 +3,23 @@ from django.db import models
 
 # Create your models here.
 
-STATUS = [('new', 'новая'), ('moderated', 'модерированная'), ('rejected', 'откланенная')]
 
+class Status(models.Model):
+    title = models.CharField(max_length=20, null=False, blank=False)
+
+class Type(models.Model):
+    title = models.CharField(max_length=20, null=False, blank=False)
 
 class Task(models.Model):
-    title = models.CharField(max_length=50, null=False, blank=False, verbose_name="title")
-    deadline = models.DateField(verbose_name="deadline")
-    status = models.CharField(max_length=20, choices=STATUS, default=STATUS[0][0], verbose_name="status")
-    description = models.TextField(max_length=200, null=True, blank=True, verbose_name="description")
+    summary = models.CharField(max_length=50, null=False, blank=False, verbose_name="summary")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
+    description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="description")
+    status = models.ForeignKey(Status, on_delete=models.PROTECT)
+    type = models.ForeignKey(Type, max_length=20, on_delete=models.PROTECT)
+
 
     def __str__(self):
-        return f'{self.pk}. {self.title}'
+        return f'{self.pk}. {self.summary}'
 
 

@@ -16,11 +16,25 @@
 {% block content %}
 
 
-    <h1>Название: {{ task.title }}</h1>
+    <h1>Название: {{ task.summary }}</h1>
     <h2>Со статусом: {{ task.get_status_display}}</h2>
-    <h2>Выполнить до: </h2><p>{{ task.deadline }}</p>
     <h3>Подробное описание: {{ task.description }}</h3>
     <hr>
+
+    <div class="card text-center">
+      <div class="card-header">
+        Type: {{ task.type }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ task.summary }}/h5>
+        <p class="card-text">{{ task.description}}</p>
+        <h4>Created date: {{ task.created_at }}</h4>
+            <h4>Updated date: {{ task.updated_at }}</h4>
+      </div>
+      <div class="card-footer text-muted">
+        Status: {{ task.get_status_display}}
+      </div>
+    </div>
 
 {% endblock %}
 

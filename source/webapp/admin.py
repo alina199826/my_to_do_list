@@ -6,9 +6,9 @@ from webapp.models import Task
 
 
 class TackAdmin(admin.ModelAdmin):
-     list_display = ['id',  'title', 'status', 'deadline']
+     list_display = ['id',  'summary', 'status', 'type', 'updated_at', 'created_at']
      list_filter = ['status']
-     search_fields = ['title']
+     search_fields = ['summary']
      exclude = []
 
 admin.site.register(Task, TackAdmin)

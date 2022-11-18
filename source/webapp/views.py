@@ -1,18 +1,33 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from webapp.models import Task, STATUS
+from webapp.models import Task
 from webapp.forms import TaskForm
+from django.views.generic import View, TemplateView
 
 
-def index_views(request):
-    tasks = Task.objects.all()
-    return render(request, "index.html", {'tasks': tasks})
+# def index_views(request):
+#     tasks = Task.objects.all()
+#     return render(request, "index.html", {'tasks': tasks})
+
+class IndexView(View):
+   def get(self, request, *args, **kwargs):
+       tasks = Task.objects.all()
+       return render(request, "index.html", {'tasks': tasks})
 
 
-def task_view(request, pk):
-    # task_id = kwargs.get('id')
-    task = Task.objects.get(pk=pk)
-    context = {'task': task}
-    return render(request, 'task_view.html', context)
+
+# def task_view(request, pk):
+#     # task_id = kwargs.get('id')
+#     task = Task.objects.get(pk=pk)
+#     context = {'task': task}
+#     return render(request, 'task_view.html', context)
+
+class TaskView(TemplateView):
+    template_name = 'task_view.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['article'] = get_object_or_404(Task, pk=kwargs.get('pk'))
+        return context
 
 def create_task(request):
     if request.method == "GET":
@@ -22,10 +37,12 @@ def create_task(request):
         form = TaskForm(data=request.POST)
         if form.is_valid():
             new_task = Task.objects.create(
-                title=form.cleaned_data['title'],
+                summary=form.cleaned_data['summary'],
                 description=form.cleaned_data['description'],
-                deadline=form.cleaned_data['deadline'],
-                status=form.cleaned_data['status']
+                type=form.cleaned_data['type'],
+                status=form.cleaned_data['status'],
+                created_at=form.cleaned_data['created_at'],
+                updated_at=form.created_at['updated_at']
             )
             return redirect('view', pk=new_task.pk)
         else:
@@ -35,19 +52,23 @@ def task_update(request, pk):
     task = get_object_or_404(Task, pk=pk)
     if request.method == 'GET':
         form = TaskForm(initial={
-            'title': task.title,
+            'summary': task.summary,
             'description': task.description,
-            'deadline': task.deadline,
+            'type': task.type,
             'status': task.status,
+            'created_at': task.created_at,
+            'updated_at': task.updated_at
         })
         return render(request, 'task_update.html', {'form': form})
     elif request.method == "POST":
         form = TaskForm(data=request.POST)
         if form.is_valid():
-            task.title = form.cleaned_data.get('title')
-            task.deadline = form.cleaned_data.get('deadline')
+            task.summary = form.cleaned_data.get('summary')
+            task.type = form.cleaned_data.get('type')
             task.description = form.cleaned_data.get('description')
             task.status = form.cleaned_data.get('status')
+            task.created_at = form.cleaned_data.get('created_at')
+            task.updated_at = form.cleaned_data.get('updated_at')
             task.save()
             return redirect('view', pk=task.pk)
         else:
