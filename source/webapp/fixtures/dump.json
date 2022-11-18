@@ -1,0 +1,122 @@
+[
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "title": "New"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "title": "Progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "title": "Done"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "title": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "title": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "title": "Enhancement"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "summary": "hgh",
+    "created_at": "2022-11-18T11:29:52.704Z",
+    "updated_at": "2022-11-18T11:29:52.704Z",
+    "description": "some",
+    "status": 2,
+    "type": 1
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "summary": "task 2",
+    "created_at": "2022-11-18T11:47:27.698Z",
+    "updated_at": "2022-11-18T11:47:27.698Z",
+    "description": "some text 2",
+    "status": 2,
+    "type": 2
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "summary": "task 3",
+    "created_at": "2022-11-18T11:47:44.178Z",
+    "updated_at": "2022-11-18T11:47:44.178Z",
+    "description": "some text 3",
+    "status": 3,
+    "type": 3
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 5,
+  "fields": {
+    "summary": "task 4",
+    "created_at": "2022-11-18T11:48:01.261Z",
+    "updated_at": "2022-11-18T11:48:01.261Z",
+    "description": "some text 4",
+    "status": 2,
+    "type": 1
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 6,
+  "fields": {
+    "summary": "task 5",
+    "created_at": "2022-11-18T11:48:28.289Z",
+    "updated_at": "2022-11-18T11:48:28.289Z",
+    "description": "some text 5",
+    "status": 2,
+    "type": 3
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$NMjVikztNJlXeHuoKQwqs2$wwyL0Dp9R7CImkXE7Ej0YC/oJ5pxMfRYx/KWNJl1MIQ=",
+    "last_login": "2022-11-18T11:18:36.866Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-18T11:18:23.191Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from webapp.models import Task
-
+from webapp.models import Task, Status, Type
 # Register your models here
 
 
@@ -12,3 +11,5 @@ class TackAdmin(admin.ModelAdmin):
      exclude = []
 
 admin.site.register(Task, TackAdmin)
+admin.site.register(Status)
+admin.site.register(Type)
