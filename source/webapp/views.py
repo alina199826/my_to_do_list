@@ -26,6 +26,7 @@ class TaskView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['task'] = get_object_or_404(Task, pk=kwargs.get('pk'))
+
         return context
 
 
@@ -42,7 +43,9 @@ class CreateTask(TemplateView):
     def post(self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
         if form.is_valid():
+            type = form.cleaned_data.pop('type')
             task = Task.objects.create(**form.cleaned_data)
+            task.type.set(type)
             return redirect('view', pk=task.pk)
         else:
             context = self.get_context_data(**kwargs)
@@ -53,25 +56,25 @@ class CreateTask(TemplateView):
 
 class TaskUpdate(View):
 
-    def get (self, request, *args,**kwargs):
+    def get (self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=kwargs['pk'])
         form = TaskForm(initial={
             'summary': task.summary,
             'description': task.description,
             'status': task.status,
-            'type': task.type
+            'type': task.type.all(),
         })
         return render(request, 'task_update.html', {'form': form, 'task': task})
 
-    def post(self, request, *args,**kwargs):
+    def post(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=kwargs['pk'])
         form = TaskForm(data=request.POST)
         if form.is_valid():
             task.summary = form.cleaned_data['summary']
             task.description = form.cleaned_data['description']
             task.status = form.cleaned_data['status']
-            task.type = form.cleaned_data['type']
             task.save()
+            task.type.set = form.cleaned_data['type']
             return redirect('view', pk=task.pk)
         else:
             render(request, 'task_update.html', {'form': form, 'task': task})

@@ -9,7 +9,7 @@
 
 {% block content %}
 
-        <h1> Issue tracker</h1>
+        <h1 class="text-center"> Issue tracker</h1>
         <hr>
 
      <form action="" method="post">
@@ -18,7 +18,7 @@
 
          {% for task in tasks %}
 
-                <div class="card">
+                <div class="card my-3">
                   <div class="card-body">
                     <h5 class="card-title ">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
                     <a href="{% url 'view' task.id %}" class="btn btn-primary">Подробнее</a>
@@ -32,3 +32,5 @@
 
 
 {% endblock %}
+
+
