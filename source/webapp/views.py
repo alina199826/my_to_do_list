@@ -5,9 +5,6 @@ from django.views.generic import View, TemplateView
 
 
 
-# def index_views(request):
-#     tasks = Task.objects.all()
-#     return render(request, "index.html", {'tasks': tasks})
 
 class IndexView(View):
    def get(self, request, *args, **kwargs):
@@ -16,11 +13,6 @@ class IndexView(View):
 
 
 
-# def task_view(request, pk):
-#     # task_id = kwargs.get('id')
-#     task = Task.objects.get(pk=pk)
-#     context = {'task': task}
-#     return render(request, 'task_view.html', context)
 
 class TaskView(TemplateView):
     template_name = 'task_view.html'
