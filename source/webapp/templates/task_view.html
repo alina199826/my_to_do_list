@@ -3,7 +3,7 @@
 
 {% block nav %}
     <li class="nav-item">
-          <a class="nav-link" href="{% url 'create' %}">Add Article</a>
+          <a class="nav-link" href="{% url 'create' %}">Add Task</a>
     </li>
     <li class="nav-item">
           <a class="nav-link" href="{% url 'update' task.pk %}">Update</a>
@@ -32,7 +32,7 @@
             <h4>Updated date: {{ task.updated_at }}</h4>
       </div>
       <div class="card-footer text-muted">
-        Status: {{ task.get_status_display}}
+        Status: {{ task.status.title}}
       </div>
     </div>
 

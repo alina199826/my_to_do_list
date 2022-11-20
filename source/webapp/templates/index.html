@@ -12,15 +12,6 @@
         <h1> Issue tracker</h1>
         <hr>
         {% for task in tasks %}
-
-{#            <h3>Название: {{ task.summary }}</h3>#}
-{#            <form action="/?id={{ task.id }}" method="POST">#}
-{#            {% csrf_token %}#}
-{#            </form>#}
-{##}
-{#            <a href="{% url 'view' task.id %}"></a>#}
-{#            <hr>#}
-
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">{{ task.summary }}</h5>

@@ -6,6 +6,4 @@ class TaskForm(forms.Form):
     summary = forms.CharField(max_length=50, required=True, label='summary')
     type = forms.ModelChoiceField(queryset=Type.objects.all(), label='type')
     status = forms.ModelChoiceField(queryset=Status.objects.all(), label='status')
-    # created_at = forms.DateTimeField(label='created_date')
-    # updated_at = forms.DateTimeField(label='updated_date')
     description = forms.CharField(max_length=3000, required=True, label='description', widget=widgets.Textarea(attrs={"cols": 20, 'rows': 3}))
