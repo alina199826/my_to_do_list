@@ -11,15 +11,24 @@
 
         <h1> Issue tracker</h1>
         <hr>
-        {% for task in tasks %}
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{ task.summary }}</h5>
-                <a href="{% url 'view' task.id %}" class="btn btn-primary">Подробнее</a>
-              </div>
-            </div>
+
+     <form action="" method="post">
+         {% csrf_token %}
+             <p><input type="submit" class="btn btn-danger" value="Delete"></p>
+
+         {% for task in tasks %}
+
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title ">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
+                    <a href="{% url 'view' task.id %}" class="btn btn-primary">Подробнее</a>
+                  </div>
+                </div>
 
         {% endfor %}
+
+
+            </form>
 
 
 {% endblock %}
