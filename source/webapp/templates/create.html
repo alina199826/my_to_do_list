@@ -3,14 +3,20 @@
 
 {% block content %}
 
-        <h2 class="text-danger">Добавь новую задачу</h2>
-
-        <form action="" method="POST">
-           {% include "partial/form.html" with button_text="Create" %}
 
 
 
-        </form>
+          <div class="m-5 text-center fs-1 fw-bold">
+            Create new Task
+          </div>
+
+
+            <form action="" method="POST">
+               {% include "partial/form.html" with button_text="Create" %}
+
+
+
+              </form>
 
 
 {% endblock %}

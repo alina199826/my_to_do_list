@@ -43,62 +43,72 @@
 },
 {
   "model": "webapp.task",
-  "pk": 9,
+  "pk": 16,
   "fields": {
-    "summary": "Task 1",
-    "created_at": "2022-11-20T19:12:19.058Z",
-    "updated_at": "2022-11-20T19:59:30.848Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi earum illo iste itaque laborum modi molestiae neque nihil obcaecati officiis optio possimus quos, saepe ullam. Aliquam dolor eos voluptates.",
+    "summary": "TASK 1",
+    "created_at": "2022-11-21T17:40:37.359Z",
+    "updated_at": "2022-11-21T17:57:25.577Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
     "status": 1,
-    "type": []
+    "type": [
+      1
+    ]
   }
 },
 {
   "model": "webapp.task",
-  "pk": 10,
+  "pk": 17,
   "fields": {
-    "summary": "Task 2",
-    "created_at": "2022-11-20T19:12:39.722Z",
-    "updated_at": "2022-11-20T19:12:39.722Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi earum illo iste itaque laborum modi molestiae neque nihil obcaecati officiis optio possimus quos, saepe ullam. Aliquam dolor eos voluptates.",
+    "summary": "TASK 2",
+    "created_at": "2022-11-21T17:42:25.325Z",
+    "updated_at": "2022-11-21T17:56:45.286Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
     "status": 2,
-    "type": []
+    "type": [
+      2
+    ]
   }
 },
 {
   "model": "webapp.task",
-  "pk": 11,
+  "pk": 18,
   "fields": {
-    "summary": "Task 3",
-    "created_at": "2022-11-20T19:12:58.593Z",
-    "updated_at": "2022-11-20T19:12:58.593Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi earum illo iste itaque laborum modi molestiae neque nihil obcaecati officiis optio possimus quos, saepe ullam. Aliquam dolor eos voluptates.",
+    "summary": "TASK 3",
+    "created_at": "2022-11-21T17:42:36.010Z",
+    "updated_at": "2022-11-21T17:56:56.730Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
     "status": 3,
-    "type": []
+    "type": [
+      3
+    ]
   }
 },
 {
   "model": "webapp.task",
-  "pk": 12,
+  "pk": 19,
   "fields": {
-    "summary": "Task 4",
-    "created_at": "2022-11-20T19:13:23.487Z",
-    "updated_at": "2022-11-20T19:13:23.487Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi earum illo iste itaque laborum modi molestiae neque nihil obcaecati officiis optio possimus quos, saepe ullam. Aliquam dolor eos voluptates.",
+    "summary": "TASK 4",
+    "created_at": "2022-11-21T17:43:12.873Z",
+    "updated_at": "2022-11-21T17:57:05.152Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
     "status": 1,
-    "type": []
+    "type": [
+      1
+    ]
   }
 },
 {
   "model": "webapp.task",
-  "pk": 13,
+  "pk": 20,
   "fields": {
-    "summary": "Task 5",
-    "created_at": "2022-11-20T19:13:39.744Z",
-    "updated_at": "2022-11-20T19:13:39.744Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi earum illo iste itaque laborum modi molestiae neque nihil obcaecati officiis optio possimus quos, saepe ullam. Aliquam dolor eos voluptates.",
+    "summary": "TASK 5",
+    "created_at": "2022-11-21T17:46:58.815Z",
+    "updated_at": "2022-11-21T17:57:17.617Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
     "status": 2,
-    "type": []
+    "type": [
+      3
+    ]
   }
 },
 {
@@ -106,7 +116,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$NMjVikztNJlXeHuoKQwqs2$wwyL0Dp9R7CImkXE7Ej0YC/oJ5pxMfRYx/KWNJl1MIQ=",
-    "last_login": "2022-11-18T11:18:36.866Z",
+    "last_login": "2022-11-21T17:39:36.011Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",

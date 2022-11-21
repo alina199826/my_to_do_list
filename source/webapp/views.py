@@ -31,6 +31,7 @@ class TaskView(TemplateView):
 
 
 
+
 class CreateTask(TemplateView):
     template_name = 'create.html'
 
@@ -74,7 +75,7 @@ class TaskUpdate(View):
             task.description = form.cleaned_data['description']
             task.status = form.cleaned_data['status']
             task.save()
-            task.type.set = form.cleaned_data['type']
+            task.type.set(form.cleaned_data['type'])
             return redirect('view', pk=task.pk)
         else:
             render(request, 'task_update.html', {'form': form, 'task': task})

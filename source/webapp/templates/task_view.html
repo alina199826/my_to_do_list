@@ -17,9 +17,12 @@
 
 
 
-    <div class="card text-center">
+    <div class="card text-center pt-3">
       <div class="card-header">
-        Type: {{ task.type.name }}
+        Type:
+           {% for i in task.type.all %} {{ i.title }}
+          {% endfor %}
+
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ task.summary }}</h5>
