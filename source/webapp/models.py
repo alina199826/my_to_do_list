@@ -15,7 +15,7 @@ class Type(models.Model):
         return f'{self.pk}. {self.title}'
 
 class Task(models.Model):
-    summary = models.CharField(max_length=500, null=False, blank=False, verbose_name="summary")
+    summary = models.CharField(max_length=50, null=False, blank=False, verbose_name="summary")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="description")
