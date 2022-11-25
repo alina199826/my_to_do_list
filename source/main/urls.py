@@ -30,10 +30,4 @@ urlpatterns = [
     path('redirect_view/', MyRedirectView.as_view()),
 
     ]
-#     path('', IndexView.as_view(), name='index'),
-#     path('task/add/', CreateTask.as_view(), name='create'),
-#     path('task/<int:pk>/', TaskView.as_view(), name='view'),
-#     path('task/<int:pk>/update/', TaskUpdate.as_view(), name='update'),
-#     path('task/<int:pk>/delete/', TaskDelete.as_view(), name='delete'),
-#
-# ]
+
