@@ -15,15 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import IndexView, CreateTask, TaskView, TaskDelete,  TaskUpdate
+from webapp.views import IndexViews, TaskCreateView, TaskView, MyRedirectView, TaskUpdateView, task_delete_view
+from django.views.generic import RedirectView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
-    path('task/add/', CreateTask.as_view(), name='create'),
+    path('', RedirectView.as_view(pattern_name='index')),
+    path('task/', IndexViews.as_view(), name='index'),
     path('task/<int:pk>/', TaskView.as_view(), name='view'),
-    path('task/<int:pk>/update/', TaskUpdate.as_view(), name='update'),
-    path('task/<int:pk>/delete/', TaskDelete.as_view(), name='delete'),
+    path('task/add/', TaskCreateView.as_view(), name='create'),
+    path('task/<int:pk>/update', TaskUpdateView.as_view(), name='update'),
+    path('task/<int:pk>/delete', task_delete_view, name='delete'),
+    path('redirect_view/', MyRedirectView.as_view()),
 
-]
+    ]
+#     path('', IndexView.as_view(), name='index'),
+#     path('task/add/', CreateTask.as_view(), name='create'),
+#     path('task/<int:pk>/', TaskView.as_view(), name='view'),
+#     path('task/<int:pk>/update/', TaskUpdate.as_view(), name='update'),
+#     path('task/<int:pk>/delete/', TaskDelete.as_view(), name='delete'),
+#
+# ]
