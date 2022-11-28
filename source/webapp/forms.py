@@ -16,7 +16,7 @@ class TaskForm(forms.ModelForm):
 
     def clean_summary(self):
         summary = self.cleaned_data['summary']
-        if summary == "igil":
+        if summary == "igil".upper():
             raise ValidationError("These are forbidden words to enter")
         return summary
 
