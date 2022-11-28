@@ -15,15 +15,15 @@ class TaskForm(forms.ModelForm):
 
 
     def clean_summary(self):
-        cleaned_data = super().clean()
-        if cleaned_data['summary'] == "igil":
+        summary = self.cleaned_data['summary']
+        if summary == "igil":
             raise ValidationError("These are forbidden words to enter")
-        return cleaned_data
+        return summary
 
     def clean_description(self):
-        cleaned_data = super().clean()
-        if not " " in cleaned_data['description']:
+        description = self.cleaned_data['description']
+        if not " " in description:
             raise ValidationError("Words must be indented'")
-        return cleaned_data
+        return description
 
 
