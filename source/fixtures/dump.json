@@ -43,20 +43,6 @@
 },
 {
   "model": "webapp.task",
-  "pk": 16,
-  "fields": {
-    "summary": "TASK 1",
-    "created_at": "2022-11-21T17:40:37.359Z",
-    "updated_at": "2022-11-21T17:57:25.577Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
-    "status": 1,
-    "type": [
-      1
-    ]
-  }
-},
-{
-  "model": "webapp.task",
   "pk": 17,
   "fields": {
     "summary": "TASK 2",
@@ -71,12 +57,26 @@
 },
 {
   "model": "webapp.task",
-  "pk": 18,
+  "pk": 41,
+  "fields": {
+    "summary": "Task 1",
+    "created_at": "2022-11-25T12:39:39.190Z",
+    "updated_at": "2022-11-25T12:39:39.190Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "status": 1,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 43,
   "fields": {
     "summary": "TASK 3",
-    "created_at": "2022-11-21T17:42:36.010Z",
-    "updated_at": "2022-11-21T17:56:56.730Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
+    "created_at": "2022-11-25T12:40:20.650Z",
+    "updated_at": "2022-11-25T12:40:20.650Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
     "status": 3,
     "type": [
       3
@@ -85,13 +85,41 @@
 },
 {
   "model": "webapp.task",
-  "pk": 19,
+  "pk": 44,
   "fields": {
     "summary": "TASK 4",
-    "created_at": "2022-11-21T17:43:12.873Z",
-    "updated_at": "2022-11-21T17:57:05.152Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
+    "created_at": "2022-11-25T12:40:31.917Z",
+    "updated_at": "2022-11-25T12:40:31.917Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
     "status": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 45,
+  "fields": {
+    "summary": "TASK 5",
+    "created_at": "2022-11-25T12:40:44.491Z",
+    "updated_at": "2022-11-25T12:40:44.491Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "status": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 50,
+  "fields": {
+    "summary": "Task 6 (bug)",
+    "created_at": "2022-11-28T17:49:10.393Z",
+    "updated_at": "2022-11-28T17:49:10.393Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "status": 2,
     "type": [
       1
     ]
@@ -99,13 +127,13 @@
 },
 {
   "model": "webapp.task",
-  "pk": 20,
+  "pk": 51,
   "fields": {
-    "summary": "TASK 5",
-    "created_at": "2022-11-21T17:46:58.815Z",
-    "updated_at": "2022-11-21T17:57:17.617Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
-    "status": 2,
+    "summary": "Task 7(bug)",
+    "created_at": "2022-11-28T17:49:58.352Z",
+    "updated_at": "2022-11-28T17:49:58.352Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "status": 3,
     "type": [
       3
     ]
@@ -116,7 +144,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$NMjVikztNJlXeHuoKQwqs2$wwyL0Dp9R7CImkXE7Ej0YC/oJ5pxMfRYx/KWNJl1MIQ=",
-    "last_login": "2022-11-21T17:39:36.011Z",
+    "last_login": "2022-11-25T12:39:27.296Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",

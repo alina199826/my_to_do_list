@@ -1,0 +1,10 @@
+
+
+
+
+TASK-3
+
+a = Q(summary__icontains='bug')
+b = Q(type__title='Bug')
+c = ~Q(status__title="Done")
+Task.objects.filter((a | b) & c)
