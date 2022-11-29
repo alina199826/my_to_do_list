@@ -1,6 +1,17 @@
 
+from webapp.models import Task, Type, Status
+from django.db.models import Q
+from datetime import datetime, timedelta
 
+TASK-1
 
+Task.objects.filter(updated_at__gte=datetime.now()-timedelta(days=30))
+
+TASK-2
+
+t = Q(type__title='Bug') & Q(type__title='Task')
+s = Q(status__title='New') & Q(status__title='Done')
+Task.objects.filter(t | s)
 
 TASK-3
 
