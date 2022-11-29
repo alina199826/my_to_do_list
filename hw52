@@ -9,9 +9,11 @@ Task.objects.filter(updated_at__gte=datetime.now()-timedelta(days=30))
 
 TASK-2
 
-t = Q(type__title='Bug') & Q(type__title='Task')
-s = Q(status__title='New') & Q(status__title='Done')
-Task.objects.filter(t | s)
+t1 = Q(type__title='Bug')
+t2 = Q(type__title='Task')
+s1 = Q(status__title='New')
+s2 = Q(status__title='Done')
+Task.objects.filter((t1 | t2) & (s1 | s2))
 
 TASK-3
 
