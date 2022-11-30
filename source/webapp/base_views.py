@@ -1,7 +1,18 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 
 
+class ListView(TemplateView):
+    model = None
+    context_key = 'object'
+
+    def get_context_data(self, **kwargs):
+        contex = super().get_context_data(**kwargs)
+        contex[self.context_key] = self.get_objects()
+        return contex
+
+    def get_objects(self):
+        return self.model.objects.all()
 class FormView(View):
     template_name = None
     form_class = None

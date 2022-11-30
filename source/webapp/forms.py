@@ -27,3 +27,6 @@ class TaskForm(forms.ModelForm):
         return description
 
 
+
+class SimpleSearchForm(forms.Form):
+    search = forms.CharField(max_length=50, required=False, label='поиск')

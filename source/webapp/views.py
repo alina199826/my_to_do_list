@@ -1,23 +1,45 @@
+
+from django.db.models import Q
+from django.utils.http import urlencode
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from webapp.models import Task
-from webapp.forms import TaskForm
-from django.views.generic import View
-from django.views.generic import TemplateView, RedirectView, FormView
+from webapp.forms import TaskForm, SimpleSearchForm
+from django.views.generic import TemplateView, RedirectView, FormView, ListView
 from webapp.base_views import FormView as CustomFormView
 
+class IndexViews(ListView):
+    template_name = 'index.html'
+    context_object_name = 'tasks'
+    model = Task
+    ordering = ('-created_at',)
+    paginate_by = 10
 
-class IndexViews(View):
     def get(self, request, *args, **kwargs):
-        tasks = Task.objects.order_by('-created_at')
-        context = {
-            'tasks': tasks
-        }
-        return render(request, "index.html", context)
+        self.form = self.get_search_form()
+        self.search_value = self.get_search_value()
+        return super().get(request, *args, **kwargs)
 
-    def post(self, request, *args, **kwargs):
-        for task_pk in request.POST.getlist('tasks'):
-            Task.objects.get(pk=task_pk).delete()
-        return redirect('index')
+    def get_search_form(self):
+        return SimpleSearchForm(self.request.GET)
+
+    def get_search_value(self):
+        if self.form.is_valid():
+            return self.form.cleaned_data['search']
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.search_value:
+            queryset = queryset.filter(Q(summary__icontains=self.search_value) | Q(description__icontains=self.search_value))
+        return queryset
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['form'] = self.form
+        if self.search_value:
+            context['query'] = urlencode({'search': self.search_value})
+            context['search'] = self.search_value
+        return context
 
 
 class TaskView(TemplateView):
