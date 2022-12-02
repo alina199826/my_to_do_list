@@ -22,9 +22,9 @@
 
              {% for task in tasks %}
 
-                    <div class="card my-3 text-bg-success">
+                    <div class="card my-3 text-bg-success ">
                       <div class="card-body">
-                        <h5 class="card-title  text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
+                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
                         <a href="{% url 'view' task.id %}" class="btn btn-warning">Detailed</a>
                       </div>
                     </div>
@@ -36,6 +36,9 @@
 
 
             </div>
+
+
+
                 {% if is_paginated %}
                     {% include 'partial/pagination.html' %}
                 {% endif %}

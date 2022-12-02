@@ -25,8 +25,8 @@ urlpatterns = [
     path('task/', IndexViews.as_view(), name='index'),
     path('task/<int:pk>/', TaskView.as_view(), name='view'),
     path('task/add/', TaskCreateView.as_view(), name='create'),
-    path('task/<int:pk>/update', TaskUpdateView.as_view(), name='update'),
-    path('task/<int:pk>/delete', task_delete_view, name='delete'),
+    path('task/<int:pk>/update/', TaskUpdateView.as_view(), name='update'),
+    path('task/<int:pk>/delete/', task_delete_view, name='delete'),
     path('redirect_view/', MyRedirectView.as_view()),
 
     ]
