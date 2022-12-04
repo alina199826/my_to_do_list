@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import widgets, ValidationError
-from webapp.models import Task
+from webapp.models import Task, Project
 
 
 
@@ -26,6 +26,12 @@ class TaskForm(forms.ModelForm):
             raise ValidationError("Words must be indented'")
         return description
 
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['title', 'content', 'date_start', 'date_end']
 
 
 class SimpleSearchForm(forms.Form):

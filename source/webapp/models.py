@@ -33,3 +33,12 @@ class Task(models.Model):
     def __str__(self):
         return f'{self.pk}. {self.summary}'
 
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=500, verbose_name="title")
+    content = models.TextField(max_length=2000, verbose_name="content")
+    date_start = models.DateField(verbose_name='the date of the beginning')
+    date_end = models.DateField(null=True, blank=True, verbose_name='expiration date')
+    project = models.ForeignKey('webapp.Project', on_delete=models.CASCADE, related_name='project_task',
+                                verbose_name="project")
