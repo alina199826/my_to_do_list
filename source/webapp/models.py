@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 
 
@@ -21,6 +23,11 @@ class Task(models.Model):
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="description")
     status = models.ForeignKey('webapp.Status', related_name='status',  on_delete=models.PROTECT)
     type = models.ManyToManyField('webapp.Type', related_name='type',)
+
+
+    def get_absolute_url(self):
+        return reverse('view', kwargs={'pk': self.pk})
+
 
 
     def __str__(self):

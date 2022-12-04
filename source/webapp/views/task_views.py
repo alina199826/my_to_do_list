@@ -4,8 +4,8 @@ from django.utils.http import urlencode
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from webapp.models import Task
 from webapp.forms import TaskForm, SimpleSearchForm
-from django.views.generic import TemplateView, RedirectView, FormView, ListView
-from webapp.base_views import FormView as CustomFormView
+from django.views.generic import RedirectView, FormView, ListView, DetailView, CreateView
+
 
 class IndexViews(ListView):
     template_name = 'index.html'
@@ -42,28 +42,26 @@ class IndexViews(ListView):
         return context
 
 
-class TaskView(TemplateView):
+class TaskView(DetailView):
     template_name = 'task_view.html'
+    model = Task
 
-    def get_context_data(self, **kwargs):
-        kwargs['task'] = get_object_or_404(Task, pk=kwargs.get('pk'))
-        return super().get_context_data(**kwargs)
 
 
 class MyRedirectView(RedirectView):
     url = 'https://ccbv.co.uk/projects/Django/4.1/django.views.generic.base/RedirectView/'
 
 
-class TaskCreateView(CustomFormView):
+class TaskCreateView(CreateView):
     template_name = "create.html"
+    model = Task
+    # fields = ['summary', 'description', 'status', 'type']
     form_class = TaskForm
 
-    def get_redirect_url(self):
-        return reverse('view', kwargs={'pk': self.task.pk})
-
-    def form_valid(self, form):
-        self.task = form.save()
-        return super().form_valid(form)
+    #
+    # def form_valid(self, form):
+    #     self.task = form.save()
+    #     return super().form_valid(form)
 
 
 class TaskUpdateView(FormView):
