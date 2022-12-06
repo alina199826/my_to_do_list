@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+
+{% block nav %}
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'project_add' %}">Add Project</a>
+    </li>
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'project_update' project.pk %}"> Update</a>
+    </li>
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'project_delete' project.pk %}">Delete</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="card text-center pt-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">{{ project.content}}</p>
+        <h4>The date of the beginning: {{ project.date_start }}</h4>
+            <h4>Expiration date: {{ project.date_end }}</h4>
+      </div>
+
+    </div>
+
+{% endblock %}
+

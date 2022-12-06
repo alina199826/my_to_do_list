@@ -55,13 +55,9 @@ class MyRedirectView(RedirectView):
 class TaskCreateView(CreateView):
     template_name = "create.html"
     model = Task
-    # fields = ['summary', 'description', 'status', 'type']
+
     form_class = TaskForm
 
-    #
-    # def form_valid(self, form):
-    #     self.task = form.save()
-    #     return super().form_valid(form)
 
 
 class TaskUpdateView(FormView):

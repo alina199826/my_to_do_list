@@ -7,7 +7,7 @@ from webapp.models import Task, Project
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['summary', 'description', 'status', 'type']
+        fields = ['summary', 'description', 'status', 'type', 'project']
         widgets = {
             'type': widgets.CheckboxSelectMultiple,
         }
@@ -32,7 +32,6 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ['title', 'content', 'date_start', 'date_end']
-
 
 class SimpleSearchForm(forms.Form):
     search = forms.CharField(max_length=50, required=False, label='поиск')
