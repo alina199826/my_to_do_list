@@ -33,5 +33,17 @@ class ProjectForm(forms.ModelForm):
         model = Project
         fields = ['title', 'content', 'date_start', 'date_end']
 
+class TaskDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['summary']
+
+    def clean_title(self):
+        title = self.cleaned_data['summary']
+        if self.instance.title != title:
+            raise ValidationError('Названия не совпадают')
+        return title
+
+
 class SimpleSearchForm(forms.Form):
     search = forms.CharField(max_length=50, required=False, label='поиск')

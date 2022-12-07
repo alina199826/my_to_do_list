@@ -4,7 +4,7 @@ from django.utils.http import urlencode
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from webapp.models import  Project
 from webapp.forms import SimpleSearchForm, ProjectForm
-from django.views.generic import RedirectView, FormView, ListView, DetailView, CreateView
+from django.views.generic import RedirectView, DeleteView, ListView, DetailView, CreateView, UpdateView
 
 
 
@@ -62,43 +62,26 @@ class MyRedirectView(RedirectView):
 
 
 
-class ProjectUpdateView(FormView):
+class ProjectUpdateView(UpdateView):
     template_name = "project/project_update.html"
     form_class = ProjectForm
+    model = Project
+    context_object_name = 'project'
 
-    def get_object(self):
-        pk = self.kwargs.get('pk')
-        return get_object_or_404(Project, pk=pk)
 
-    def dispatch(self, request, *args, **kwargs):
-        self.project = self.get_object()
-        return super().dispatch(request, *args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['project'] = self.project
-        return context
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['instance'] = self.project
-        return kwargs
 
-    def form_valid(self, form):
-        self.project = form.save()
-        return super().form_valid(form)
+
+class ProjectDeleteView(DeleteView):
+    model = Project
+
+
+    def get(self,request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('project_view', kwargs={'pk': self.project.pk})
-
-
-def project_delete_view(request, pk):
-    project = get_object_or_404(Project, pk=pk)
-    if request.method == "GET":
-        return render(request, 'project/project_delete.html', {'project': project})
-    elif request.method == "POST":
-        project.delete()
-        return redirect('index_project')
+        return reverse('view', kwargs={'pk': self.object.task.pk})
 
 
 
