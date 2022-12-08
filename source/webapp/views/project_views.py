@@ -22,7 +22,9 @@ class IndexViewsProject(ListView):
     context_object_name = 'projects'
     model = Project
     ordering = ('title',)
-    paginate_by = 10
+    paginate_by = 5
+    search_form_class = SimpleSearchForm
+    search_fields = ['title__icontains', 'content__icontains']
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
@@ -39,7 +41,7 @@ class IndexViewsProject(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.search_value:
-            queryset = queryset.filter(Q(title__icontains=self.search_value) | Q(context__icontains=self.search_value))
+            queryset = queryset.filter(Q(title__icontains=self.search_value) | Q(content__icontains=self.search_value))
         return queryset
 
 
