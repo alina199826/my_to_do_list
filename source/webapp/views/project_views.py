@@ -7,7 +7,6 @@ from webapp.forms import SimpleSearchForm, ProjectForm
 from django.views.generic import RedirectView, FormView, ListView, DetailView, CreateView
 
 
-
 class TaskProjectCreateView(CreateView):
     template_name = 'project/project_create.html'
     model = Project
