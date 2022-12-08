@@ -38,10 +38,21 @@ class TaskDeleteForm(forms.ModelForm):
         model = Task
         fields = ['summary']
 
-    def clean_title(self):
+    def clean_summary(self):
         title = self.cleaned_data['summary']
         if self.instance.title != title:
-            raise ValidationError('Названия не совпадают')
+            raise ValidationError("Names don't match")
+        return title
+
+class ProjectDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['title']
+
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        if self.instance.title != title:
+            raise ValidationError("Names don't match")
         return title
 
 
