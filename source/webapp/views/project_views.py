@@ -1,7 +1,7 @@
 
 from django.db.models import Q
 from django.utils.http import urlencode
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import  reverse
 from webapp.models import  Project
 from webapp.forms import SimpleSearchForm, ProjectForm
 from django.views.generic import RedirectView, DeleteView, ListView, DetailView, CreateView, UpdateView
@@ -13,6 +13,7 @@ class TaskProjectCreateView(CreateView):
     model = Project
     form_class = ProjectForm
 
+
     def get_success_url(self):
         return reverse('project_view', kwargs={'pk': self.object.pk})
 
@@ -21,7 +22,10 @@ class IndexViewsProject(ListView):
     template_name = 'project/project_list.html'
     context_object_name = 'projects'
     model = Project
-    paginate_by = 10
+    ordering = ('-date_start',)
+    paginate_by = 5
+    search_form_class = SimpleSearchForm
+    search_fields = ['title__icontains', 'content__icontains']
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
@@ -38,7 +42,7 @@ class IndexViewsProject(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.search_value:
-            queryset = queryset.filter(Q(title__icontains=self.search_value) | Q(context__icontains=self.search_value))
+            queryset = queryset.filter(Q(title__icontains=self.search_value) | Q(content__icontains=self.search_value))
         return queryset
 
 
@@ -67,8 +71,6 @@ class ProjectUpdateView(UpdateView):
     form_class = ProjectForm
     model = Project
     context_object_name = 'project'
-
-
 
 
 

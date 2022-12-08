@@ -12,7 +12,9 @@ class IndexViews(ListView):
     context_object_name = 'tasks'
     model = Task
     ordering = ('-created_at',)
-    paginate_by = 10
+    paginate_by = 5
+    search_form_class = SimpleSearchForm
+    search_fields = ['summary__icontains', 'description__icontains']
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
