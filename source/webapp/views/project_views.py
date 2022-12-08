@@ -21,6 +21,7 @@ class IndexViewsProject(ListView):
     template_name = 'project/project_list.html'
     context_object_name = 'projects'
     model = Project
+    ordering = ('title',)
     paginate_by = 10
 
     def get(self, request, *args, **kwargs):
