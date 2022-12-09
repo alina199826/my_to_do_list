@@ -77,14 +77,6 @@ class ProjectUpdateView(UpdateView):
 
 
 class ProjectDeleteView(DeleteView):
-    # model = Project
-    #
-    #
-    # def get(self,request, *args, **kwargs):
-    #     return self.delete(request, *args, **kwargs)
-    #
-    # def get_success_url(self):
-    #     return reverse('view', kwargs={'pk': self.object.task.pk})
     template_name = 'project/project_delete.html'
     model = Project
     context_object_name = 'project'
