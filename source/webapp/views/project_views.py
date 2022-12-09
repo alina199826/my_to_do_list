@@ -80,7 +80,7 @@ class ProjectDeleteView(DeleteView):
     template_name = 'project/project_delete.html'
     model = Project
     context_object_name = 'project'
-    success_url = reverse_lazy('project_list')
+    success_url = reverse_lazy('index_project')
     form_class = ProjectDeleteForm
 
     def post(self, request, *args, **kwargs):

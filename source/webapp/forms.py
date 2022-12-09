@@ -50,10 +50,10 @@ class ProjectDeleteForm(forms.ModelForm):
         fields = ['title']
 
     def clean_title(self):
-        title = self.cleaned_data['title']
-        if self.instance.title != title:
+        title2 = self.cleaned_data['title']
+        if self.instance.title != title2:
             raise ValidationError("Names don't match")
-        return title
+        return title2
 
 
 class SimpleSearchForm(forms.Form):

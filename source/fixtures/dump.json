@@ -43,100 +43,152 @@
 },
 {
   "model": "webapp.task",
-  "pk": 17,
+  "pk": 65,
   "fields": {
-    "summary": "TASK 2",
-    "created_at": "2022-11-21T17:42:25.325Z",
-    "updated_at": "2022-11-21T17:56:45.286Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus pariatur reiciendis veritatis voluptate! Aut cumque iure libero quo sunt tempore ullam vel, velit vero voluptate? Deleniti in sit voluptates voluptatibus.",
+    "summary": "task 1",
+    "created_at": "2022-12-07T19:23:38.096Z",
+    "updated_at": "2022-12-08T17:25:43.935Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
+    "status": 1,
+    "project": 3,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 66,
+  "fields": {
+    "summary": "Task 2",
+    "created_at": "2022-12-08T17:25:56.403Z",
+    "updated_at": "2022-12-08T17:25:56.403Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
     "status": 2,
+    "project": 3,
     "type": [
-      2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 41,
-  "fields": {
-    "summary": "Task 1",
-    "created_at": "2022-11-25T12:39:39.190Z",
-    "updated_at": "2022-11-25T12:39:39.190Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "status": 1,
-    "type": [
+      2,
       3
     ]
   }
 },
 {
   "model": "webapp.task",
-  "pk": 43,
+  "pk": 67,
   "fields": {
-    "summary": "TASK 3",
-    "created_at": "2022-11-25T12:40:20.650Z",
-    "updated_at": "2022-11-25T12:40:20.650Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "status": 3,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 44,
-  "fields": {
-    "summary": "TASK 4",
-    "created_at": "2022-11-25T12:40:31.917Z",
-    "updated_at": "2022-11-25T12:40:31.917Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "status": 1,
-    "type": [
-      2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 45,
-  "fields": {
-    "summary": "TASK 5",
-    "created_at": "2022-11-25T12:40:44.491Z",
-    "updated_at": "2022-11-25T12:40:44.491Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "status": 1,
-    "type": [
-      2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 50,
-  "fields": {
-    "summary": "Task 6 (bug)",
-    "created_at": "2022-11-28T17:49:10.393Z",
-    "updated_at": "2022-11-28T17:49:10.393Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "summary": "Task 4",
+    "created_at": "2022-12-08T17:26:07.323Z",
+    "updated_at": "2022-12-08T17:26:07.323Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
     "status": 2,
+    "project": 3,
     "type": [
-      1
+      2,
+      3
     ]
   }
 },
 {
   "model": "webapp.task",
-  "pk": 51,
+  "pk": 68,
   "fields": {
-    "summary": "Task 7(bug)",
-    "created_at": "2022-11-28T17:49:58.352Z",
-    "updated_at": "2022-11-28T17:49:58.352Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "status": 3,
+    "summary": "Task 4",
+    "created_at": "2022-12-08T17:26:17.759Z",
+    "updated_at": "2022-12-08T17:26:17.759Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
+    "status": 1,
+    "project": 5,
     "type": [
+      1,
+      2,
       3
     ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 69,
+  "fields": {
+    "summary": "Task 6",
+    "created_at": "2022-12-08T17:26:29.955Z",
+    "updated_at": "2022-12-08T17:26:29.955Z",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
+    "status": 3,
+    "project": 3,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "title": "Project 3",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "date_start": "2022-10-02",
+    "date_end": "2022-12-31"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "title": "project 6",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam. AAA",
+    "date_start": "2022-10-05",
+    "date_end": "2023-05-07"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "title": "Project 5",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
+    "date_start": "2022-10-05",
+    "date_end": "2025-12-31"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "title": "Project 7",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
+    "date_start": "2022-10-05",
+    "date_end": "2023-05-07"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 8,
+  "fields": {
+    "title": "Project 6",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "date_start": "2022-10-05",
+    "date_end": "2023-05-02"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 9,
+  "fields": {
+    "title": "Project 9",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "date_start": "2022-10-05",
+    "date_end": "2025-05-06"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 10,
+  "fields": {
+    "title": "project 6",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "date_start": "2022-10-05",
+    "date_end": "2023-05-06"
   }
 },
 {
@@ -153,6 +205,24 @@
     "is_staff": true,
     "is_active": true,
     "date_joined": "2022-11-18T11:18:23.191Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$ta3j4yDdlqiMFahHIPbOm4$jE8ELuwZgXGbfLNSoFIS11oUnSUmjES8n+1sALhTN8A=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-12-04T19:25:29.150Z",
     "groups": [],
     "user_permissions": []
   }
