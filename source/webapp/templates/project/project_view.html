@@ -36,8 +36,8 @@
               <div class="card-body">
                 <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
                 <a href="{{ task.get_absolute_url }}" class="btn btn-warning">Detailed</a>
-                        <a href="{% url 'update' task.pk %}" class="btn btn-primary">Update</a>
-                        <a href="{% url 'delete' task.pk %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'webapp:update' task.pk %}" class="btn btn-primary">Update</a>
+                        <a href="{% url 'webapp:delete' task.pk %}" class="btn btn-danger">Delete</a>
               </div>
             </div>
 

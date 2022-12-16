@@ -3,101 +3,54 @@
   "model": "webapp.status",
   "pk": 1,
   "fields": {
-    "title": "New"
+    "title": "new"
   }
 },
 {
   "model": "webapp.status",
   "pk": 2,
   "fields": {
-    "title": "Progress"
+    "title": "in progress"
   }
 },
 {
   "model": "webapp.status",
   "pk": 3,
   "fields": {
-    "title": "Done"
+    "title": "done"
   }
 },
 {
   "model": "webapp.type",
   "pk": 1,
   "fields": {
-    "title": "Task"
+    "title": "bug"
   }
 },
 {
   "model": "webapp.type",
   "pk": 2,
   "fields": {
-    "title": "Bug"
+    "title": "type 2"
   }
 },
 {
   "model": "webapp.type",
   "pk": 3,
   "fields": {
-    "title": "Enhancement"
+    "title": "type 3"
   }
 },
 {
   "model": "webapp.task",
-  "pk": 65,
-  "fields": {
-    "summary": "task 1",
-    "created_at": "2022-12-07T19:23:38.096Z",
-    "updated_at": "2022-12-08T17:25:43.935Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
-    "status": 1,
-    "project": 3,
-    "type": [
-      2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 66,
+  "pk": 1,
   "fields": {
     "summary": "Task 2",
-    "created_at": "2022-12-08T17:25:56.403Z",
-    "updated_at": "2022-12-08T17:25:56.403Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
-    "status": 2,
-    "project": 3,
-    "type": [
-      2,
-      3
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 67,
-  "fields": {
-    "summary": "Task 4",
-    "created_at": "2022-12-08T17:26:07.323Z",
-    "updated_at": "2022-12-08T17:26:07.323Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
-    "status": 2,
-    "project": 3,
-    "type": [
-      2,
-      3
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 68,
-  "fields": {
-    "summary": "Task 4",
-    "created_at": "2022-12-08T17:26:17.759Z",
-    "updated_at": "2022-12-08T17:26:17.759Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
-    "status": 1,
-    "project": 5,
+    "created_at": "2022-12-16T12:37:50.894Z",
+    "updated_at": "2022-12-16T12:37:50.894Z",
+    "description": "text 2",
+    "status": 3,
+    "project": 1,
     "type": [
       1,
       2,
@@ -107,14 +60,14 @@
 },
 {
   "model": "webapp.task",
-  "pk": 69,
+  "pk": 2,
   "fields": {
-    "summary": "Task 6",
-    "created_at": "2022-12-08T17:26:29.955Z",
-    "updated_at": "2022-12-08T17:26:29.955Z",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
-    "status": 3,
-    "project": 3,
+    "summary": "task 2",
+    "created_at": "2022-12-16T12:42:19.438Z",
+    "updated_at": "2022-12-16T12:42:19.438Z",
+    "description": "text 2",
+    "status": 2,
+    "project": 2,
     "type": [
       2,
       3
@@ -122,13 +75,104 @@
   }
 },
 {
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "summary": "task 3",
+    "created_at": "2022-12-16T12:42:43.444Z",
+    "updated_at": "2022-12-16T12:42:43.444Z",
+    "description": "text 3",
+    "status": 1,
+    "project": 5,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "summary": "task 4",
+    "created_at": "2022-12-16T12:43:09.634Z",
+    "updated_at": "2022-12-16T12:43:09.634Z",
+    "description": "text 4",
+    "status": 1,
+    "project": 4,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 5,
+  "fields": {
+    "summary": "task 6",
+    "created_at": "2022-12-16T12:43:29.435Z",
+    "updated_at": "2022-12-16T12:43:29.435Z",
+    "description": "text 6",
+    "status": 1,
+    "project": 6,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 6,
+  "fields": {
+    "summary": "task 8",
+    "created_at": "2022-12-16T12:43:45.994Z",
+    "updated_at": "2022-12-16T12:43:45.994Z",
+    "description": "text 8",
+    "status": 2,
+    "project": 5,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "title": "project 1",
+    "content": "text",
+    "date_start": "2022-10-05",
+    "date_end": "2023-05-07"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "title": "project 2",
+    "content": "text 2",
+    "date_start": "2022-10-05",
+    "date_end": "2022-12-30"
+  }
+},
+{
   "model": "webapp.project",
   "pk": 3,
   "fields": {
-    "title": "Project 3",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "date_start": "2022-10-02",
+    "title": "project 3",
+    "content": "text 3",
+    "date_start": "2022-10-05",
     "date_end": "2022-12-31"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "title": "project 5",
+    "content": "text 5",
+    "date_start": "2022-10-05",
+    "date_end": "2023-05-06"
   }
 },
 {
@@ -136,57 +180,17 @@
   "pk": 5,
   "fields": {
     "title": "project 6",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam. AAA",
+    "content": "text 6",
     "date_start": "2022-10-05",
-    "date_end": "2023-05-07"
+    "date_end": "2022-12-31"
   }
 },
 {
   "model": "webapp.project",
   "pk": 6,
   "fields": {
-    "title": "Project 5",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
-    "date_start": "2022-10-05",
-    "date_end": "2025-12-31"
-  }
-},
-{
-  "model": "webapp.project",
-  "pk": 7,
-  "fields": {
-    "title": "Project 7",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis distinctio doloribus ea est fugit maxime, nam nihil nisi obcaecati officiis, perspiciatis quaerat quasi quis quo rem sint sit veniam.",
-    "date_start": "2022-10-05",
-    "date_end": "2023-05-07"
-  }
-},
-{
-  "model": "webapp.project",
-  "pk": 8,
-  "fields": {
-    "title": "Project 6",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "date_start": "2022-10-05",
-    "date_end": "2023-05-02"
-  }
-},
-{
-  "model": "webapp.project",
-  "pk": 9,
-  "fields": {
-    "title": "Project 9",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
-    "date_start": "2022-10-05",
-    "date_end": "2025-05-06"
-  }
-},
-{
-  "model": "webapp.project",
-  "pk": 10,
-  "fields": {
-    "title": "project 6",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi, impedit magnam non officia perspiciatis sapiente tempora. A aut autem corporis distinctio harum id iusto minus nostrum quod rem, veniam.",
+    "title": "project 7",
+    "content": "text 7",
     "date_start": "2022-10-05",
     "date_end": "2023-05-06"
   }
@@ -195,26 +199,8 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$390000$NMjVikztNJlXeHuoKQwqs2$wwyL0Dp9R7CImkXE7Ej0YC/oJ5pxMfRYx/KWNJl1MIQ=",
-    "last_login": "2022-11-25T12:39:27.296Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2022-11-18T11:18:23.191Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 2,
-  "fields": {
-    "password": "pbkdf2_sha256$390000$ta3j4yDdlqiMFahHIPbOm4$jE8ELuwZgXGbfLNSoFIS11oUnSUmjES8n+1sALhTN8A=",
-    "last_login": null,
+    "password": "pbkdf2_sha256$390000$0JtNwFQCqj9TZ0YteIASHa$7to3HfyJv0maBE0ojxQ+cZvTMnvsRZvo926CUf2EpwI=",
+    "last_login": "2022-12-16T12:25:55.215Z",
     "is_superuser": true,
     "username": "admin1",
     "first_name": "",
@@ -222,7 +208,7 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2022-12-04T19:25:29.150Z",
+    "date_joined": "2022-12-16T12:25:43.946Z",
     "groups": [],
     "user_permissions": []
   }

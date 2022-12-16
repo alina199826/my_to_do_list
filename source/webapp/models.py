@@ -28,7 +28,7 @@ class Task(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('view', kwargs={'pk': self.pk})
+        return reverse('webapp:view', kwargs={'pk': self.pk})
 
 
 
@@ -45,7 +45,7 @@ class Project(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('project_view', kwargs={'pk': self.pk})
+        return reverse('webapp:project_view', kwargs={'pk': self.pk})
 
 
     def __str__(self):
