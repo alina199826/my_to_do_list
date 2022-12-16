@@ -1,4 +1,5 @@
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.utils.http import urlencode
@@ -54,7 +55,7 @@ class MyRedirectView(RedirectView):
     url = 'https://ccbv.co.uk/projects/Django/4.1/django.views.generic.base/RedirectView/'
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(LoginRequiredMixin, CreateView):
     template_name = "create.html"
     model = Task
     form_class = TaskForm

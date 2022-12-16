@@ -2,12 +2,12 @@
 {% block title %}Delete Task{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'view' task.pk %}">View</a>
+        <a class="nav-link" href="{% url 'webapp:view' task.pk %}">View</a>
     </li>
 {% endblock %}
 {% block content %}
     <h1 class="text-center m-5">Are you sure want to delete task "{{ task.summary }}"?</h1>
-    <form method="POST" action="{% url "delete" task.pk %}" class="text-center">
+    <form method="POST" action="{% url "webapp:delete" task.pk %}" class="text-center">
         {% csrf_token %}
           {% include 'partial/form.html' with button_text="Delete" %}
         <p class="btn btn-success "><a class="text-white" href="{% url "view" task.pk %}">Cancel</a></p>
