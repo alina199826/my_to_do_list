@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 
 
@@ -21,8 +23,30 @@ class Task(models.Model):
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="description")
     status = models.ForeignKey('webapp.Status', related_name='status',  on_delete=models.PROTECT)
     type = models.ManyToManyField('webapp.Type', related_name='type',)
+    project = models.ForeignKey('webapp.Project', on_delete=models.CASCADE, related_name='project_task',
+                                verbose_name="project")
+
+
+    def get_absolute_url(self):
+        return reverse('view', kwargs={'pk': self.pk})
+
 
 
     def __str__(self):
         return f'{self.pk}. {self.summary}'
 
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=500, verbose_name="title")
+    content = models.TextField(max_length=2000, verbose_name="content")
+    date_start = models.DateField(verbose_name='the date of the beginning')
+    date_end = models.DateField(null=True, blank=True, verbose_name='expiration date')
+
+
+    def get_absolute_url(self):
+        return reverse('project_view', kwargs={'pk': self.pk})
+
+
+    def __str__(self):
+        return f'{self.pk}. {self.title}'

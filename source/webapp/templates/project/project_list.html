@@ -2,30 +2,36 @@
 {% extends 'base.html' %}
 
     {% block nav %}
-        <li class="nav-item">
-              <a class="nav-link" href="{% url 'create' %}">Add Task</a>
+         <li class="nav-item">
+              <a class="nav-link" href="{% url 'project_add'  %}">Add Project</a>
         </li>
+
+        <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">All Tasks</a>
+        </li>
+
         <li class="nav-item">
             {% include 'partial/simple_search.html' %}
         </li>
 
     {% endblock %}
 
+
     {% block content %}
 
-            <h1 class="text-center text-capitalize fs-1 m-4"> Issue tracker</h1>
+            <h1 class="text-center text-capitalize fs-1 m-4"> Projects</h1>
             <hr>
 
          <form action="" method="post">
              {% csrf_token %}
                  <p><input type="submit" class="btn btn-danger" value="Delete"></p>
 
-             {% for task in tasks %}
+             {% for project in projects %}
 
                     <div class="card my-3 text-bg-success ">
                       <div class="card-body">
-                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
-                        <a href="{{ task.get_absolute_url }}" class="btn btn-warning">Detailed</a>
+                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="projects" type="checkbox" value="{{ project.pk }}" > {{ project.title }}</h5>
+                        <a href="{{ project.get_absolute_url }}" class="btn btn-warning">Detailed</a>
                       </div>
                     </div>
 
@@ -36,7 +42,6 @@
 
 
             </div>
-
 
 
                 {% if is_paginated %}

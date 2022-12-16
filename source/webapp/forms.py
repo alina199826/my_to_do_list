@@ -1,13 +1,13 @@
 from django import forms
 from django.forms import widgets, ValidationError
-from webapp.models import Task
+from webapp.models import Task, Project
 
 
 
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['summary', 'description', 'status', 'type']
+        fields = ['summary', 'description', 'status', 'type', 'project']
         widgets = {
             'type': widgets.CheckboxSelectMultiple,
         }
@@ -26,6 +26,34 @@ class TaskForm(forms.ModelForm):
             raise ValidationError("Words must be indented'")
         return description
 
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['title', 'content', 'date_start', 'date_end']
+
+class TaskDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['summary']
+
+    def clean_summary(self):
+        title = self.cleaned_data['summary']
+        if self.instance.title != title:
+            raise ValidationError("Names don't match")
+        return title
+
+class ProjectDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['title']
+
+    def clean_title(self):
+        title2 = self.cleaned_data['title']
+        if self.instance.title != title2:
+            raise ValidationError("Names don't match")
+        return title2
 
 
 class SimpleSearchForm(forms.Form):

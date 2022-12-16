@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+
+{% block nav %}
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'project_add' %}">Add Project</a>
+    </li>
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'project_update' project.pk %}"> Update</a>
+    </li>
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'project_delete' project.pk %}">Delete</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="card text-center pt-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">{{ project.content}}</p>
+        <h4>The date of the beginning: {{ project.date_start }}</h4>
+            <h4>Expiration date: {{ project.date_end }}</h4>
+      </div>
+
+    </div>
+
+
+        {% for task in project.project_task.all %}
+
+            <div class="card my-3 text-bg-success ">
+              <div class="card-body">
+                <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
+                <a href="{{ task.get_absolute_url }}" class="btn btn-warning">Detailed</a>
+                        <a href="{% url 'update' task.pk %}" class="btn btn-primary">Update</a>
+                        <a href="{% url 'delete' task.pk %}" class="btn btn-danger">Delete</a>
+              </div>
+            </div>
+
+        {% endfor %}
+
+{% endblock %}
+
