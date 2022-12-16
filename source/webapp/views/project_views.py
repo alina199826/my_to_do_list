@@ -1,4 +1,4 @@
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.utils.http import urlencode
 from django.shortcuts import  reverse
@@ -9,7 +9,7 @@ from django.views.generic import RedirectView, DeleteView, ListView, DetailView,
 
 
 
-class TaskProjectCreateView(CreateView):
+class TaskProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'project/project_create.html'
     model = Project
     form_class = ProjectForm

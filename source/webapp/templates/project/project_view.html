@@ -2,15 +2,17 @@
 {% extends 'base.html' %}
 
 {% block nav %}
+    {% if request.user.is_authenticated %}
     <li class="nav-item">
-          <a class="nav-link" href="{% url 'project_add' %}">Add Project</a>
+          <a class="nav-link" href="{% url 'webapp:project_add' %}">Add Project</a>
     </li>
     <li class="nav-item">
-          <a class="nav-link" href="{% url 'project_update' project.pk %}"> Update</a>
+          <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}"> Update</a>
     </li>
     <li class="nav-item">
-          <a class="nav-link" href="{% url 'project_delete' project.pk %}">Delete</a>
+          <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete</a>
     </li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
