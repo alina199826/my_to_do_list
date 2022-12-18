@@ -58,3 +58,5 @@ class ProjectDeleteForm(forms.ModelForm):
 
 class SimpleSearchForm(forms.Form):
     search = forms.CharField(max_length=50, required=False, label='поиск')
+
+
