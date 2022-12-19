@@ -20,11 +20,12 @@ class RegisterView(CreateView):
         next_url = self.request.GET.get('next')
         if next_url:
             return next_url
+
         next_url = self.request.POST.get('next')
         if next_url:
             return next_url
-        return reverse('webapp:index')
 
+        return reverse('webapp:index')
 def login_view(request):
     context = {}
     if request.method == 'POST':
