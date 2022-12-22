@@ -17,7 +17,6 @@ class TaskProjectCreateView(LoginRequiredMixin, CreateView):
 
 
     def form_valid(self, form):
-        users = User.objects.filter()
         form.instance.users = self.request.user
         return super().form_valid(form)
 
