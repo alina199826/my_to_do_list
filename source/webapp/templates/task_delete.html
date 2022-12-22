@@ -10,7 +10,7 @@
     <form method="POST" action="{% url "webapp:delete" task.pk %}" class="text-center">
         {% csrf_token %}
           {% include 'partial/form.html' with button_text="Delete" %}
-        <p class="btn btn-success "><a class="text-white" href="{% url "view" task.pk %}">Cancel</a></p>
+        <p class="btn btn-success "><a class="text-white" href="{% url "webapp:view" task.pk %}">Cancel</a></p>
     </form>
 {% endblock %}
 

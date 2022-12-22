@@ -1,8 +1,8 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.utils.http import urlencode
-from django.shortcuts import  reverse
-from webapp.models import  Project
+from django.shortcuts import reverse
+from webapp.models import Project
 from django.urls import reverse_lazy
 from webapp.forms import SimpleSearchForm, ProjectForm, ProjectDeleteForm
 from django.views.generic import RedirectView, DeleteView, ListView, DetailView, CreateView, UpdateView
@@ -67,12 +67,12 @@ class MyRedirectView(RedirectView):
 
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = "project/project_update.html"
     form_class = ProjectForm
     model = Project
     context_object_name = 'project'
-
+    permission_required = 'webapp.change_project'
 
 
 

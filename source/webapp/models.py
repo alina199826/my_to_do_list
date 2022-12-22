@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth import get_user_model
+from django.forms import widgets
 
 
 
@@ -42,9 +44,15 @@ class Project(models.Model):
     content = models.TextField(max_length=2000, verbose_name="content")
     date_start = models.DateField(verbose_name='the date of the beginning')
     date_end = models.DateField(null=True, blank=True, verbose_name='expiration date')
+    users = models.ManyToManyField(get_user_model(), related_name='users',
+                               verbose_name="User")
 
+    widgets = {
+        'tags': widgets.CheckboxSelectMultiple,
+    }
 
     def get_absolute_url(self):
+
         return reverse('webapp:project_view', kwargs={'pk': self.pk})
 
 

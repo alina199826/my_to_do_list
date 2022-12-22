@@ -1,5 +1,5 @@
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.utils.http import urlencode
@@ -61,12 +61,12 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     form_class = TaskForm
 
 
-
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = "task_update.html"
     form_class = TaskForm
     model = Task
     context_object_name = 'task'
+    permission_required = 'webapp.change_task'
 
 
 class TaskDeleteView(DeleteView):

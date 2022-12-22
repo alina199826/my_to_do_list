@@ -6,9 +6,11 @@
         <li class="nav-item">
               <a class="nav-link" href="{% url 'webapp:create' %}">Add Task</a>
         </li>
+         {% if perms.webapp.change_task %}
         <li class="nav-item">
               <a class="nav-link" href="{% url 'webapp:update' task.pk %}">Update</a>
         </li>
+         {% endif %}
         <li class="nav-item">
               <a class="nav-link" href="{% url 'webapp:delete' task.pk %}">Delete</a>
         </li>
