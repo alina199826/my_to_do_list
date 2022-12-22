@@ -142,7 +142,12 @@
         "title": "project 1",
         "content": "text",
         "date_start": "2022-10-05",
-        "date_end": "2023-05-07"
+        "date_end": "2023-05-07",
+        "users": [
+            1,
+            9,
+            10
+        ]
     }
 },
 {
@@ -152,7 +157,8 @@
         "title": "project 2",
         "content": "text 2",
         "date_start": "2022-10-05",
-        "date_end": "2022-12-30"
+        "date_end": "2022-12-30",
+        "users": []
     }
 },
 {
@@ -162,7 +168,10 @@
         "title": "project 3",
         "content": "text 3",
         "date_start": "2022-10-05",
-        "date_end": "2022-12-31"
+        "date_end": "2022-12-31",
+        "users": [
+            12
+        ]
     }
 },
 {
@@ -172,7 +181,10 @@
         "title": "project 5",
         "content": "text 5",
         "date_start": "2022-10-05",
-        "date_end": "2023-05-06"
+        "date_end": "2023-05-06",
+        "users": [
+            1
+        ]
     }
 },
 {
@@ -182,7 +194,10 @@
         "title": "project 6",
         "content": "text 6",
         "date_start": "2022-10-05",
-        "date_end": "2022-12-31"
+        "date_end": "2022-12-31",
+        "users": [
+            13
+        ]
     }
 },
 {
@@ -192,7 +207,10 @@
         "title": "project 7",
         "content": "text 7",
         "date_start": "2022-10-05",
-        "date_end": "2023-05-06"
+        "date_end": "2023-05-06",
+        "users": [
+            11
+        ]
     }
 }
 ]
