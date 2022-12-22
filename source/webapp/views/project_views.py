@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.models import User
 from django.db.models import Q
 from django.utils.http import urlencode
 from django.shortcuts import reverse
@@ -13,6 +14,12 @@ class TaskProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'project/project_create.html'
     model = Project
     form_class = ProjectForm
+
+
+    def form_valid(self, form):
+        users = User.objects.filter()
+        form.instance.users = self.request.user
+        return super().form_valid(form)
 
 
     def get_success_url(self):
@@ -74,14 +81,20 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     context_object_name = 'project'
     permission_required = 'webapp.change_project'
 
+    def has_permission(self):
+        return super().has_permission() or self.get_object().users == self.request.user
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'project/project_delete.html'
     model = Project
     context_object_name = 'project'
     success_url = reverse_lazy('webapp:index_project')
     form_class = ProjectDeleteForm
+    permission_required = 'webapp.delete_project'
+
+    def has_permission(self):
+        return super().has_permission() or self.get_object().users == self.request.user
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

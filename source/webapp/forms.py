@@ -31,7 +31,7 @@ class TaskForm(forms.ModelForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'content', 'date_start', 'date_end', 'users']
+        fields = ['title', 'content', 'date_start', 'date_end']
 
         widgets = {
             'users': widgets.CheckboxSelectMultiple,
