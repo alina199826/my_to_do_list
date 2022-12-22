@@ -6,12 +6,16 @@
     <li class="nav-item">
           <a class="nav-link" href="{% url 'webapp:project_add' %}">Add Project</a>
     </li>
+     {% if perms.webapp.change_project or project.users == request.user %}
     <li class="nav-item">
           <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}"> Update</a>
     </li>
+    {% endif %}
+    {% if perms.webapp.delete_project  or project.users == request.user %}
     <li class="nav-item">
           <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete</a>
     </li>
+     {% endif %}
     {% endif %}
 {% endblock %}
 
@@ -38,11 +42,15 @@
 
             <div class="card my-3 text-bg-success ">
               <div class="card-body">
-                <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="tasks" type="checkbox" value="{{ task.pk }}" > {{ task.summary }}</h5>
+                <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic"> {{ task.summary }}</h5>
                 <a href="{{ task.get_absolute_url }}" class="btn btn-warning">Detailed</a>
                      {% if request.user.is_authenticated %}
+                       {% if perms.webapp.change_project or project.users == request.user %}
                         <a href="{% url 'webapp:update' task.pk %}" class="btn btn-primary">Update</a>
+                       {% endif %}
+                       {% if perms.webapp.delete_project  or project.users == request.user %}
                         <a href="{% url 'webapp:delete' task.pk %}" class="btn btn-danger">Delete</a>
+                       {% endif %}
 
                      {% endif %}
               </div>

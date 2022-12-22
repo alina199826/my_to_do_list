@@ -34,7 +34,7 @@
 
                     <div class="card my-3 text-bg-success ">
                       <div class="card-body">
-                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic"> {% if request.user.is_authenticated %}<input class="form-check-input m-2" name="projects" type="checkbox" value="{{ project.pk }}" > {% endif %} {{ project.title }}</h5>
+                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  {{ project.title }}</h5>
                         <a href="{{ project.get_absolute_url }}" class="btn btn-warning">Detailed</a>
                       </div>
                     </div>
