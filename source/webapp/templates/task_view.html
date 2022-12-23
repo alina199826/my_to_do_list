@@ -6,18 +6,17 @@
         <li class="nav-item">
               <a class="nav-link" href="{% url 'webapp:create' %}">Add Task</a>
         </li>
-         {% if perms.webapp.change_task %}
-              {% if perms.webapp.change_task or project.users == request.user %}
+              {% if perms.webapp.change_task and request.user in project.users %}
         <li class="nav-item">
               <a class="nav-link" href="{% url 'webapp:update' task.pk %}">Update</a>
         </li>
                   {% endif %}
          {% endif %}
         <li class="nav-item">
-        {% if perms.webapp.delete_task  or project.users == request.user %}
+        {% if perms.webapp.delete_task  and project.users == request.user %}
               <a class="nav-link" href="{% url 'webapp:delete' task.pk %}">Delete</a>
         </li>
-            {% endif %}
+
      {% endif %}
 {% endblock %}
 
