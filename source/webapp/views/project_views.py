@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.contrib.auth.models import User
+
 from django.db.models import Q
 from django.utils.http import urlencode
 from django.shortcuts import reverse
@@ -17,7 +17,9 @@ class TaskProjectCreateView(LoginRequiredMixin, CreateView):
 
 
     def form_valid(self, form):
-        form.instance.users = self.request.user
+        project = form.save()
+        project.users.add(self.request.user)
+        project.save()
         return super().form_valid(form)
 
 
