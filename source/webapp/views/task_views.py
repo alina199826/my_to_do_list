@@ -68,7 +68,7 @@ class TaskUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'webapp.change_task'
 
     def has_permission(self):
-        return super().has_permission() or self.request.user in self.get_object().users.all()
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
 
 class TaskDeleteView(UserPassesTestMixin, DeleteView):
@@ -79,7 +79,7 @@ class TaskDeleteView(UserPassesTestMixin, DeleteView):
     form_class = TaskDeleteForm
 
     def test_func(self):
-        return self.request.user.has_perm('webapp.delete_task') or self.request.user in self.get_object().users.all()
+        return self.request.user.has_perm('webapp.delete_task') and self.request.user in self.get_object().users.all()
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
