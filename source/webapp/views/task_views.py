@@ -1,5 +1,4 @@
-
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.utils.http import urlencode
@@ -61,20 +60,26 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     form_class = TaskForm
 
 
-
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = "task_update.html"
     form_class = TaskForm
     model = Task
     context_object_name = 'task'
+    permission_required = 'webapp.change_task'
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(UserPassesTestMixin, DeleteView):
     template_name = 'task_delete.html'
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('index')
     form_class = TaskDeleteForm
+
+    def test_func(self):
+        return self.request.user.has_perm('webapp.delete_task') and self.request.user in self.get_object().users.all()
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

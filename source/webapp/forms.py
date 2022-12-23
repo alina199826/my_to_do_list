@@ -31,7 +31,12 @@ class TaskForm(forms.ModelForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'content', 'date_start', 'date_end']
+        fields = ['title', 'content', 'date_start', 'date_end', 'users']
+
+        widgets = {
+            'users': widgets.CheckboxSelectMultiple,
+        }
+
 
 class TaskDeleteForm(forms.ModelForm):
     class Meta:

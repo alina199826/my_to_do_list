@@ -26,13 +26,15 @@
 
          <form action="" method="post">
              {% csrf_token %}
+              {% if request.user.is_authenticated %}
                  <p><input type="submit" class="btn btn-danger" value="Delete"></p>
+               {% endif %}
 
              {% for project in projects %}
 
                     <div class="card my-3 text-bg-success ">
                       <div class="card-body">
-                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  <input class="form-check-input m-2" name="projects" type="checkbox" value="{{ project.pk }}" > {{ project.title }}</h5>
+                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  {{ project.title }}</h5>
                         <a href="{{ project.get_absolute_url }}" class="btn btn-warning">Detailed</a>
                       </div>
                     </div>

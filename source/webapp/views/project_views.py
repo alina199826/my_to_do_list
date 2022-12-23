@@ -1,8 +1,9 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 from django.db.models import Q
 from django.utils.http import urlencode
-from django.shortcuts import  reverse
-from webapp.models import  Project
+from django.shortcuts import reverse
+from webapp.models import Project
 from django.urls import reverse_lazy
 from webapp.forms import SimpleSearchForm, ProjectForm, ProjectDeleteForm
 from django.views.generic import RedirectView, DeleteView, ListView, DetailView, CreateView, UpdateView
@@ -13,6 +14,13 @@ class TaskProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'project/project_create.html'
     model = Project
     form_class = ProjectForm
+
+
+    def form_valid(self, form):
+        project = form.save()
+        project.users.add(self.request.user)
+        project.save()
+        return super().form_valid(form)
 
 
     def get_success_url(self):
@@ -67,21 +75,27 @@ class MyRedirectView(RedirectView):
 
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = "project/project_update.html"
     form_class = ProjectForm
     model = Project
     context_object_name = 'project'
+    permission_required = 'webapp.change_project'
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
 
-
-
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'project/project_delete.html'
     model = Project
     context_object_name = 'project'
     success_url = reverse_lazy('webapp:index_project')
     form_class = ProjectDeleteForm
+    permission_required = 'webapp.delete_project'
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
