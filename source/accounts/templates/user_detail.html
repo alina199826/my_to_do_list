@@ -19,13 +19,16 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">Имя пользователя: {{ user_obj.username }}</h5>
-        <p class="card-text">Имя: {{ user_obj.first_name }}</p>
 
         <p class="card-text">Фамилия: {{ user_obj.last_name }}</p>
+{#          <p class="card-text">Биография : {{ user_obj.profile.biography }}</p>#}
+
 
         <p class="card-text">Почта: {{ user_obj.email }}</p>
       </div>
     </div>
   </div>
 </div>
+
+     {% include 'partial/list_project.html' with projects=object_list %}
 {% endblock %}
