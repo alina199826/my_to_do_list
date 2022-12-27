@@ -21,37 +21,8 @@
 
     {% block content %}
 
-            <h1 class="text-center text-capitalize fs-1 m-4"> Projects</h1>
-            <hr>
 
-         <form action="" method="post">
-             {% csrf_token %}
-              {% if request.user.is_authenticated %}
-                 <p><input type="submit" class="btn btn-danger" value="Delete"></p>
-               {% endif %}
-
-             {% for project in projects %}
-
-                    <div class="card my-3 text-bg-success ">
-                      <div class="card-body">
-                        <h5 class="card-title   p-1 text-warning bg-dark text-md fst-italic">  {{ project.title }}</h5>
-                        <a href="{{ project.get_absolute_url }}" class="btn btn-warning">Detailed</a>
-                      </div>
-                    </div>
-
-            {% endfor %}
-
-
-                </form>
-
-
-            </div>
-
-
-                {% if is_paginated %}
-                    {% include 'partial/pagination.html' %}
-                {% endif %}
-
+ {% include 'partial/list_project.html' %}
 
 
     {% endblock %}

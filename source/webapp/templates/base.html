@@ -26,10 +26,11 @@
                 <li class="nav-item">
                     <p class="nav-link" >Hi, <a href="{% url 'accounts:detail' request.user.pk %}">{{ request.user.username }}</a></p>
                 </li>
-
+           {% if perms.webapp.сan_see_list_user %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:list_users' %}">All users</a>
                 </li>
+               {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Exit</a>
                 </li>

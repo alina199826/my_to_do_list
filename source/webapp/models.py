@@ -47,9 +47,16 @@ class Project(models.Model):
     users = models.ManyToManyField(get_user_model(), related_name='users',
                                verbose_name="User")
 
+
     widgets = {
         'tags': widgets.CheckboxSelectMultiple,
     }
+    class Meta:
+        permissions = [
+
+            ('сan_see_list_user', 'Может смотреть профили пользователей')
+
+        ]
 
     def get_absolute_url(self):
 
