@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
+
 
 class Profile(models.Model):
     user = models.OneToOneField(get_user_model(), related_name='profile', on_delete=models.CASCADE,
@@ -8,6 +10,8 @@ class Profile(models.Model):
     avatar = models.ImageField(null=True, blank=True, upload_to='user_avatar', verbose_name='Фото')
     link = models.URLField(max_length=200, null=True, blank=True, verbose_name='Cсылка')
 
+    def get_absolute_url(self):
+        return reverse('accounts:detail', kwargs={'pk': self.pk})
 
 
     def __str__(self):

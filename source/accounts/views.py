@@ -6,7 +6,7 @@ from django.urls import reverse
 from accounts.models import Profile
 from accounts.forms import MyUserCreationForm
 from django.views.generic.list import MultipleObjectMixin
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -43,3 +43,9 @@ class UserDetailView(LoginRequiredMixin, DetailView, MultipleObjectMixin):
     def get_context_data(self, **kwargs):
         projects = self.get_object().users.all()
         return super().get_context_data(object_list=projects, **kwargs)
+
+class UserList(ListView):
+    template_name = 'user_list.html'
+    context_object_name = 'users'
+    model = Profile
+    paginate_by = 5

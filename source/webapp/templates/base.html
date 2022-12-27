@@ -26,6 +26,10 @@
                 <li class="nav-item">
                     <p class="nav-link" >Hi, <a href="{% url 'accounts:detail' request.user.pk %}">{{ request.user.username }}</a></p>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:list_users' %}">All users</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Exit</a>
                 </li>
