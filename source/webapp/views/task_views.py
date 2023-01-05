@@ -8,7 +8,7 @@ from django.views.generic import RedirectView, DeleteView, ListView, DetailView,
 
 
 class IndexViews(ListView):
-    template_name = 'index.html'
+    template_name = 'task/index.html'
     context_object_name = 'tasks'
     model = Task
     ordering = ('-created_at',)
@@ -45,7 +45,7 @@ class IndexViews(ListView):
 
 
 class TaskView(DetailView):
-    template_name = 'task_view.html'
+    template_name = 'task/task_view.html'
     model = Task
 
 
@@ -55,13 +55,13 @@ class MyRedirectView(RedirectView):
 
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
-    template_name = "create.html"
+    template_name = "task/create.html"
     model = Task
     form_class = TaskForm
 
 
 class TaskUpdateView(PermissionRequiredMixin, UpdateView):
-    template_name = "task_update.html"
+    template_name = "task/task_update.html"
     form_class = TaskForm
     model = Task
     context_object_name = 'task'
@@ -72,7 +72,7 @@ class TaskUpdateView(PermissionRequiredMixin, UpdateView):
 
 
 class TaskDeleteView(UserPassesTestMixin, DeleteView):
-    template_name = 'task_delete.html'
+    template_name = 'task/task_delete.html'
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('index')
