@@ -36,10 +36,10 @@
                 </li>
             {% else %}
                 <li class="ms-autu nav-item ">
-                    <a class="btn  btn-info" href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Log in</a>
+                    <a class="btn  btn-info" href="{% url 'accounts:login' %}?next={% if request.GET.next  %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}">Log in</a>
                 </li>
                 <li class=" nav-item ">
-                    <a class="btn m-auto btn-info" href="{% url 'accounts:create' %}?next={{ request.get_full_path }}">Registration</a>
+                    <a class="btn m-auto btn-info" href="{% url 'accounts:create' %}?next={% if request.GET.next  %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}">Registration</a>
                 </li>
             {% endif %}
       </ul>
