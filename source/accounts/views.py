@@ -7,7 +7,7 @@ from accounts.models import Profile
 from accounts.forms import MyUserCreationForm, ProfileChangeForm, UserChangeForm
 from django.views.generic.list import MultipleObjectMixin
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 class RegisterView(CreateView):
@@ -40,15 +40,18 @@ class UserDetailView(LoginRequiredMixin, DetailView, MultipleObjectMixin):
     paginate_by = 3
 
 
+
     def get_context_data(self, **kwargs):
         projects = self.get_object().users.all()
         return super().get_context_data(object_list=projects, **kwargs)
 
-class UserList(ListView):
+
+class UserList(PermissionRequiredMixin, ListView):
     template_name = 'user_list.html'
     context_object_name = 'users'
-    model = Profile
+    model = get_user_model()
     paginate_by = 5
+    permission_required = 'webapp.сan_see_list_user'
 
 
 class UserChangeView(LoginRequiredMixin, UpdateView):
